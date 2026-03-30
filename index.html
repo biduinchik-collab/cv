@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vasyl Butuzov — Head of Sales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #F5F4EF;
+    --sidebar: #1A2A3A;
+    --rule:    #D4D0C8;
+    --text:    #1C1C1C;
+    --tsec:    #4A4A4A;
+    --tlt:     #888880;
+    --st:      #E2DDD4;
+    --sm:      #6A8AA8;
+    --sa:      #8AAECC;
+    --sl:      rgba(255,255,255,0.09);
+    --tag:     #E8E5DD;
+    --surf:    #EEECEA;
+    --tr:      0.18s ease;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.65;min-height:100vh}
+
+  /* TOPBAR */
+  .tb{position:fixed;top:0;left:0;right:0;z-index:100;height:50px;background:rgba(245,244,239,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 36px}
+  .tb-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;letter-spacing:.05em}
+  .tb-r{display:flex;align-items:center;gap:14px}
+  .lt{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden}
+  .lb{font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:5px 13px;border:none;cursor:pointer;background:transparent;color:var(--tlt);transition:var(--tr)}
+  .lb+.lb{border-left:1px solid var(--rule)}
+  .lb.on{background:var(--sidebar);color:#fff}
+  .dl{font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:7px 18px;border:1px solid var(--sidebar);color:var(--sidebar);background:transparent;border-radius:2px;cursor:pointer;text-decoration:none;transition:var(--tr);display:inline-flex;align-items:center;gap:7px}
+  .dl:hover{background:var(--sidebar);color:#fff}
+  .dl svg{width:12px;height:12px}
+
+  /* LAYOUT */
+  .ly{display:grid;grid-template-columns:240px 1fr;min-height:100vh;padding-top:50px;max-width:1080px;margin:0 auto}
+
+  /* SIDEBAR */
+  .sb{background:var(--sidebar);padding:36px 24px 40px;position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;scrollbar-width:none}
+  .sb::-webkit-scrollbar{display:none}
+  .av{width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--st);margin-bottom:18px;letter-spacing:.05em}
+  .sn{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:5px;letter-spacing:.02em}
+  .sr{font-size:11.5px;color:var(--sm);line-height:1.5;margin-bottom:6px}
+  .op{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(138,174,204,.3);border-radius:2px;padding:4px 10px;font-size:10.5px;color:var(--sa);margin-bottom:24px;margin-top:4px}
+  .od{width:5px;height:5px;border-radius:50%;background:#5DCA7E;animation:blink 2.2s infinite}
+  @keyframes blink{0%,100%{opacity:1}55%{opacity:.3}}
+  .shr{height:1px;background:var(--sl);margin:18px 0}
+  .slb{font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sa);margin-bottom:10px}
+  .srow{display:flex;align-items:flex-start;gap:9px;margin-bottom:9px}
+  .srow svg{width:13px;height:13px;flex-shrink:0;color:var(--sm);margin-top:2px}
+  .srow span,.srow a{font-size:12.5px;color:var(--st);line-height:1.4;word-break:break-all;text-decoration:none}
+  .srow a:hover{color:var(--sa)}
+  .schips{display:flex;flex-wrap:wrap;gap:5px}
+  .sc{font-size:11px;color:var(--st);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:2px;padding:3px 8px;line-height:1.4}
+  .sed{margin-bottom:11px}
+  .set{font-size:12.5px;font-weight:500;color:var(--st);margin-bottom:1px}
+  .ses{font-size:11.5px;color:var(--sm)}
+
+  /* MAIN */
+  .mn{padding:40px 44px 56px}
+  .sec{margin-bottom:44px}
+  .sh{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  .sl_{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--text);letter-spacing:.03em;white-space:nowrap}
+  .sli{flex:1;height:1px;background:var(--rule)}
+  .sum{font-size:14px;color:var(--tsec);line-height:1.8;max-width:600px;font-weight:300}
+  .sts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+  .st{background:var(--surf);border:1px solid var(--rule);padding:16px 18px}
+  .stn{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--sidebar);line-height:1;margin-bottom:4px}
+  .std{font-size:11.5px;color:var(--tlt);line-height:1.4}
+
+  /* JOBS */
+  .job{border:1px solid var(--rule);background:#fff;margin-bottom:10px;cursor:pointer;transition:var(--tr)}
+  .job:hover{border-color:#B8B4A8}
+  .jh{display:flex;align-items:flex-start;justify-content:space-between;padding:18px 20px;gap:12px}
+  .jr{font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px}
+  .jc{font-size:12.5px;font-weight:500;color:var(--sidebar);letter-spacing:.02em}
+  .jmeta{text-align:right;flex-shrink:0}
+  .jp{font-size:12px;color:var(--tlt);white-space:nowrap}
+  .jn{font-size:11px;color:var(--tlt);margin-top:2px}
+  .jtog{width:22px;height:22px;flex-shrink:0;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;margin-top:1px;transition:var(--tr)}
+  .job.on .jtog{background:var(--sidebar);border-color:var(--sidebar)}
+  .jtog svg{width:10px;height:10px;color:var(--tlt);transition:var(--tr)}
+  .job.on .jtog svg{color:#fff;transform:rotate(45deg)}
+  .jb{max-height:0;overflow:hidden;transition:max-height .32s cubic-bezier(.4,0,.2,1),opacity .22s ease;opacity:0}
+  .job.on .jb{max-height:500px;opacity:1}
+  .ji{padding:14px 20px 18px;border-top:1px solid var(--rule)}
+  .jul{list-style:none;margin-bottom:12px}
+  .jul li{font-size:13px;color:var(--tsec);line-height:1.65;padding:3px 0 3px 16px;position:relative}
+  .jul li::before{content:'—';position:absolute;left:0;color:var(--rule);font-size:11px;top:5px}
+  .jtags{display:flex;flex-wrap:wrap;gap:5px}
+  .jtag{font-size:10.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:var(--tag);color:var(--tlt);padding:3px 9px}
+
+  /* SKILLS GRID */
+  .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .sg{background:#fff;border:1px solid var(--rule);padding:16px 18px}
+  .sgl{font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sidebar);margin-bottom:10px}
+  .sgch{display:flex;flex-wrap:wrap;gap:5px}
+  .sgc{font-size:12px;color:var(--tsec);background:var(--tag);padding:3px 9px;border-radius:1px}
+
+  /* FOOTER */
+  .ft{text-align:center;padding:20px;font-size:11.5px;color:var(--tlt);border-top:1px solid var(--rule);letter-spacing:.04em}
+
+  /* ANIM */
+  @keyframes fu{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .fi{animation:fu .45s ease both}
+  .fi:nth-child(1){animation-delay:.05s}
+  .fi:nth-child(2){animation-delay:.12s}
+  .fi:nth-child(3){animation-delay:.19s}
+  .fi:nth-child(4){animation-delay:.26s}
+
+  /* i18n */
+  [data-lang]{display:none}
+  [data-lang].v{display:block}
+  .il[data-lang]{display:none}
+  .il[data-lang].v{display:inline}
+
+  @media(max-width:720px){
+    .ly{grid-template-columns:1fr}
+    .sb{position:static;height:auto}
+    .mn{padding:28px 18px 40px}
+    .sts{grid-template-columns:repeat(3,1fr);gap:8px}
+    .sgrid{grid-template-columns:1fr}
+    .tb{padding:0 16px}
+  }
+</style>
+</head>
+<body>
+
+<header class="tb">
+  <div class="tb-name">Vasyl Butuzov</div>
+  <div class="tb-r">
+    <div class="lt">
+      <button class="lb on" onclick="setLang('en')">EN</button>
+      <button class="lb"    onclick="setLang('ua')">UA</button>
+    </div>
+    <a class="dl" href="Vasyl_Butuzov_CV_EN.pdf" download id="dl">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+      <span class="il" data-lang="en">Download CV</span>
+      <span class="il" data-lang="ua">Завантажити CV</span>
+    </a>
+  </div>
+</header>
+
+<div class="ly">
+<aside class="sb">
+  <div class="av">VB</div>
+  <div class="sn">Vasyl<br>Butuzov</div>
+  <div class="sr">
+    <span class="il" data-lang="en">Head of Sales / Commercial Lead<br>MilTech &amp; Defense · B2B &amp; B2G</span>
+    <span class="il" data-lang="ua">Керівник відділу продажів<br>MilTech та оборона · B2B і B2G</span>
+  </div>
+  <div class="op"><div class="od"></div>
+    <span class="il" data-lang="en">Open to remote roles</span>
+    <span class="il" data-lang="ua">Розглядаю remote</span>
+  </div>
+
+  <div class="shr"></div>
+  <div class="slb"><span class="il" data-lang="en">Contact</span><span class="il" data-lang="ua">Контакти</span></div>
+  <div class="srow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 2a2 2 0 012-2h3a2 2 0 012 1.72 12.05 12.05 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.05 12.05 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>+380 66 362 0169</span></div>
+  <div class="srow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:boo2zov@outlook.com">boo2zov@outlook.com</a></div>
+  <div class="srow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span><span class="il" data-lang="en">Ivano-Frankivsk, Ukraine</span><span class="il" data-lang="ua">Івано-Франківськ, Україна</span></span></div>
+  <div class="srow"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg><a href="https://www.linkedin.com/in/vasyl-butuzov/" target="_blank">linkedin.com/in/vasyl-butuzov</a></div>
+
+  <div class="shr"></div>
+  <div class="slb"><span class="il" data-lang="en">Skills</span><span class="il" data-lang="ua">Навички</span></div>
+  <div data-lang="en" class="schips"><span class="sc">B2B / B2G Sales</span><span class="sc">Defense & MilTech</span><span class="sc">EW / Anti-Drone</span><span class="sc">Tender Docs</span><span class="sc">TTX / KP</span><span class="sc">CRM</span><span class="sc">KPI Systems</span><span class="sc">Power BI</span><span class="sc">Team Lead</span></div>
+  <div data-lang="ua" class="schips"><span class="sc">B2B / B2G</span><span class="sc">Оборонний сектор</span><span class="sc">РЕБ / антидрон</span><span class="sc">Тендери</span><span class="sc">КП / ТТХ</span><span class="sc">CRM</span><span class="sc">KPI-системи</span><span class="sc">Power BI</span><span class="sc">Команда</span></div>
+
+  <div class="shr"></div>
+  <div class="slb"><span class="il" data-lang="en">Languages</span><span class="il" data-lang="ua">Мови</span></div>
+  <div class="sed"><div class="set"><span class="il" data-lang="en">Ukrainian — Native</span><span class="il" data-lang="ua">Українська — Рідна</span></div></div>
+  <div class="sed"><div class="set"><span class="il" data-lang="en">English — B2 / C1</span><span class="il" data-lang="ua">Англійська — B2 / C1</span></div></div>
+
+  <div class="shr"></div>
+  <div class="slb"><span class="il" data-lang="en">Education</span><span class="il" data-lang="ua">Освіта</span></div>
+  <div class="sed"><div class="set"><span class="il" data-lang="en">Bachelor of Theology</span><span class="il" data-lang="ua">Бакалавр теології</span></div><div class="ses"><span class="il" data-lang="en">Kyiv Bible Institute, 2013–2016</span><span class="il" data-lang="ua">КБІ, 2013–2016</span></div></div>
+  <div class="sed"><div class="set">YBC Business Leadership</div><div class="ses"><span class="il" data-lang="en">Certificate, 2018</span><span class="il" data-lang="ua">Сертифікат, 2018</span></div></div>
+  <div class="sed"><div class="set">HubSpot Inbound Sales</div><div class="ses"><span class="il" data-lang="en">Certified, 2024</span><span class="il" data-lang="ua">Сертифікований, 2024</span></div></div>
+
+  <div class="shr"></div>
+  <div class="slb"><span class="il" data-lang="en">Reference</span><span class="il" data-lang="ua">Рекомендації</span></div>
+  <div class="sed"><div class="set">Vitalii Dem</div><div class="ses"><span class="il" data-lang="en">Co-owner, Smart Expert · on request</span><span class="il" data-lang="ua">Співвласник, Smart Expert · на запит</span></div></div>
+</aside>
+
+<main class="mn">
+
+  <section class="sec fi">
+    <div class="sh"><span class="sl_"><span class="il" data-lang="en">Profile</span><span class="il" data-lang="ua">Профіль</span></span><div class="sli"></div></div>
+    <p class="sum">
+      <span class="il" data-lang="en">Senior commercial leader with 7+ years in B2B/B2G sales, defense electronics, SaaS, and distribution. Hands-on operator with full ownership of complex sales cycles — from customer discovery through contract execution. Deep domain expertise in electronic warfare (EW) systems, procurement processes, and defense integrator relationships. Proven track record building sales functions from scratch and driving consistent revenue growth in regulated, mission-critical environments.</span>
+      <span class="il" data-lang="ua">Досвідчений комерційний лідер із 7+ роками у B2B/B2G продажах, оборонній електроніці, SaaS та дистрибуції. Самостійно веду повний цикл продажів — від першого контакту до підписання договору. Глибока галузева експертиза у сфері засобів РЕБ, тендерній документації та роботі з оборонними інтеграторами. Досвід побудови відділів продажів з нуля в регульованих, місія-критичних середовищах.</span>
+    </p>
+    <div class="sts">
+      <div class="st"><div class="stn">7+</div><div class="std"><span class="il" data-lang="en">Years B2B/B2G</span><span class="il" data-lang="ua">Років у B2B/B2G</span></div></div>
+      <div class="st"><div class="stn">+25%</div><div class="std"><span class="il" data-lang="en">Avg deal value</span><span class="il" data-lang="ua">Середній чек</span></div></div>
+      <div class="st"><div class="stn">45→70%</div><div class="std"><span class="il" data-lang="en">Sales plan execution</span><span class="il" data-lang="ua">Виконання плану</span></div></div>
+    </div>
+  </section>
+
+  <section class="sec fi">
+    <div class="sh"><span class="sl_"><span class="il" data-lang="en">Experience</span><span class="il" data-lang="ua">Досвід</span></span><div class="sli"></div></div>
+
+    <div class="job on" onclick="tog(this)">
+      <div class="jh">
+        <div><div class="jr"><span class="il" data-lang="en">Sales Executive / Commercial Lead</span><span class="il" data-lang="ua">Менеджер із продажів / Комерційний лід</span></div><div class="jc">Abacus-Tech · MilTech &amp; Defense Electronics</div></div>
+        <div class="jmeta"><div class="jp"><span class="il" data-lang="en">Jun 2025 – Present</span><span class="il" data-lang="ua">черв. 2025 – дотепер</span></div><div class="jn">Ukraine</div></div>
+        <div class="jtog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </div>
+      <div class="jb"><div class="ji">
+        <ul class="jul">
+          <li><span class="il" data-lang="en">Built and executing B2B and selective B2G sales strategy from scratch for EW product line (anti-drone, jamming, spectrum management)</span><span class="il" data-lang="ua">Розробив і реалізує B2B та B2G стратегію з нуля для лінійки засобів РЕБ (антидрон, придушення, спектр)</span></li>
+          <li><span class="il" data-lang="en">Own the full sales cycle: discovery, technical briefings, TTX/KP proposals, negotiations, contract execution</span><span class="il" data-lang="ua">Повний цикл: розвідка клієнта, технічні обговорення, КП/ТТХ, переговори, укладення договорів</span></li>
+          <li><span class="il" data-lang="en">Work directly with military units, volunteer foundations, defense integrators, and institutional buyers</span><span class="il" data-lang="ua">Безпосередня робота з військовими підрозділами, волонтерськими фондами, інтеграторами та держструктурами</span></li>
+          <li><span class="il" data-lang="en">Support procurement and tender activities; coordinate with engineering on configuration and delivery</span><span class="il" data-lang="ua">Супровід тендерних процедур; координація з інженерним відділом щодо конфігурацій і строків</span></li>
+          <li><span class="il" data-lang="en">Designed CRM structure, pipeline, forecasting model, and KPI reporting from zero</span><span class="il" data-lang="ua">Побудова CRM-структури, воронки, прогнозування та KPI-звітності з нуля</span></li>
+        </ul>
+        <div class="jtags"><span class="jtag">EW Systems</span><span class="jtag">B2G</span><span class="jtag">TTX / KP</span><span class="jtag">Defense Procurement</span></div>
+      </div></div>
+    </div>
+
+    <div class="job" onclick="tog(this)">
+      <div class="jh">
+        <div><div class="jr"><span class="il" data-lang="en">Head of Sales</span><span class="il" data-lang="ua">Керівник відділу продажів</span></div><div class="jc">Pixophone · Retail Electronics</div></div>
+        <div class="jmeta"><div class="jp"><span class="il" data-lang="en">Feb – Apr 2025</span><span class="il" data-lang="ua">лют. – квіт. 2025</span></div><div class="jn"><span class="il" data-lang="en">Contract</span><span class="il" data-lang="ua">Контракт</span></div></div>
+        <div class="jtog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </div>
+      <div class="jb"><div class="ji">
+        <ul class="jul">
+          <li><span class="il" data-lang="en">Led 6-person B2C electronics sales team; improved daily execution and reporting discipline</span><span class="il" data-lang="ua">Керував командою B2C продажів (6 осіб); підвищив дисципліну виконання та звітності</span></li>
+          <li><span class="il" data-lang="en">Increased average deal size from $500 to $1,500 through upsell and configuration selling</span><span class="il" data-lang="ua">Збільшив середній чек з $500 до $1 500 через апсейл і конфігураційний продаж</span></li>
+        </ul>
+        <div class="jtags"><span class="jtag">B2C</span><span class="jtag">Team Lead</span><span class="jtag">Retail</span></div>
+      </div></div>
+    </div>
+
+    <div class="job" onclick="tog(this)">
+      <div class="jh">
+        <div><div class="jr"><span class="il" data-lang="en">Client Service Director</span><span class="il" data-lang="ua">Директор із клієнтського сервісу</span></div><div class="jc">Smart Expert · EdTech / LMS</div></div>
+        <div class="jmeta"><div class="jp"><span class="il" data-lang="en">Jan – Jun 2024</span><span class="il" data-lang="ua">січ. – черв. 2024</span></div></div>
+        <div class="jtog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </div>
+      <div class="jb"><div class="ji">
+        <ul class="jul">
+          <li><span class="il" data-lang="en">Built client service department from scratch; rebuilt CRM structure and internal KPI systems</span><span class="il" data-lang="ua">Побудував відділ клієнтського сервісу з нуля; перебудував CRM та внутрішні KPI</span></li>
+          <li><span class="il" data-lang="en">Improved sales plan execution from 45% to 70% within 3 months</span><span class="il" data-lang="ua">Підвищив виконання плану продажів із 45% до 70% за 3 місяці</span></li>
+          <li><span class="il" data-lang="en">Increased customer satisfaction and NPS score across key accounts</span><span class="il" data-lang="ua">Покращив рівень задоволеності клієнтів та NPS за ключовими акаунтами</span></li>
+        </ul>
+        <div class="jtags"><span class="jtag">EdTech</span><span class="jtag">CRM Build</span><span class="jtag">NPS</span></div>
+      </div></div>
+    </div>
+
+    <div class="job" onclick="tog(this)">
+      <div class="jh">
+        <div><div class="jr"><span class="il" data-lang="en">Head of Pre-Sales</span><span class="il" data-lang="ua">Керівник пресейлу</span></div><div class="jc">DSN Group · B2B</div></div>
+        <div class="jmeta"><div class="jp"><span class="il" data-lang="en">May 2022 – Aug 2023</span><span class="il" data-lang="ua">трав. 2022 – серп. 2023</span></div></div>
+        <div class="jtog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </div>
+      <div class="jb"><div class="ji">
+        <ul class="jul">
+          <li><span class="il" data-lang="en">Led 3-person B2B pre-sales team; supported new market entry and prospect qualification</span><span class="il" data-lang="ua">Керував командою пресейлу (3 особи); виведення на нові ринки та кваліфікація лідів</span></li>
+          <li><span class="il" data-lang="en">Achieved +15% client base growth; automated lead qualification and outreach via CRM</span><span class="il" data-lang="ua">+15% зростання клієнтської бази; автоматизація кваліфікації лідів через CRM</span></li>
+        </ul>
+        <div class="jtags"><span class="jtag">B2B</span><span class="jtag">Pre-Sales</span><span class="jtag">Market Entry</span></div>
+      </div></div>
+    </div>
+
+    <div class="job" onclick="tog(this)">
+      <div class="jh">
+        <div><div class="jr"><span class="il" data-lang="en">Head of Sales</span><span class="il" data-lang="ua">Керівник відділу продажів</span></div><div class="jc">Zhiva Comp. · HoReCa Distribution</div></div>
+        <div class="jmeta"><div class="jp"><span class="il" data-lang="en">Aug 2020 – Feb 2021</span><span class="il" data-lang="ua">серп. 2020 – лют. 2021</span></div></div>
+        <div class="jtog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </div>
+      <div class="jb"><div class="ji">
+        <ul class="jul">
+          <li><span class="il" data-lang="en">Increased revenue by 8% and average deal value by 25% in HoReCa segment</span><span class="il" data-lang="ua">Збільшив виручку на 8% і середній чек на 25% у сегменті HoReCa</span></li>
+          <li><span class="il" data-lang="en">Built KPI systems, onboarding programs, and weekly performance review cadence</span><span class="il" data-lang="ua">Розробив KPI-системи, програму онбордингу та щотижневий performance review</span></li>
+        </ul>
+        <div class="jtags"><span class="jtag">HoReCa</span><span class="jtag">Distribution</span><span class="jtag">KPI Build</span></div>
+      </div></div>
+    </div>
+
+    <div class="job" onclick="tog(this)">
+      <div class="jh">
+        <div><div class="jr"><span class="il" data-lang="en">Sales Manager / Team Lead</span><span class="il" data-lang="ua">Менеджер із продажів / Тімлід</span></div><div class="jc">SMG · Marketing &amp; Telecommunications</div></div>
+        <div class="jmeta"><div class="jp"><span class="il" data-lang="en">Aug 2017 – Oct 2019</span><span class="il" data-lang="ua">серп. 2017 – жовт. 2019</span></div></div>
+        <div class="jtog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </div>
+      <div class="jb"><div class="ji">
+        <ul class="jul">
+          <li><span class="il" data-lang="en">Built and owned sales onboarding and KPI frameworks for growing sales team</span><span class="il" data-lang="ua">Розробив системи онбордингу та KPI-фреймворки для зростаючого відділу</span></li>
+          <li><span class="il" data-lang="en">Led daily execution, performance management, and mentoring of sales managers</span><span class="il" data-lang="ua">Щоденне управління виконанням плану, менторинг менеджерів із продажів</span></li>
+        </ul>
+        <div class="jtags"><span class="jtag">Team Lead</span><span class="jtag">Onboarding</span><span class="jtag">Telecoms</span></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="sec fi">
+    <div class="sh"><span class="sl_"><span class="il" data-lang="en">Skills &amp; Tools</span><span class="il" data-lang="ua">Навички та інструменти</span></span><div class="sli"></div></div>
+    <div class="sgrid">
+      <div class="sg"><div class="sgl"><span class="il" data-lang="en">Sales &amp; BD</span><span class="il" data-lang="ua">Продажі та BD</span></div><div class="sgch"><span class="sgc"><span class="il" data-lang="en">B2B / B2G Full-Cycle</span><span class="il" data-lang="ua">B2B / B2G повний цикл</span></span><span class="sgc"><span class="il" data-lang="en">Defense Sales</span><span class="il" data-lang="ua">Оборонний сектор</span></span><span class="sgc"><span class="il" data-lang="en">Business Development</span><span class="il" data-lang="ua">Розвиток бізнесу</span></span><span class="sgc"><span class="il" data-lang="en">Account Management</span><span class="il" data-lang="ua">Акаунт-менеджмент</span></span></div></div>
+      <div class="sg"><div class="sgl"><span class="il" data-lang="en">Domain</span><span class="il" data-lang="ua">Галузь</span></div><div class="sgch"><span class="sgc">EW / РЕБ</span><span class="sgc"><span class="il" data-lang="en">Anti-Drone Systems</span><span class="il" data-lang="ua">Антидрон системи</span></span><span class="sgc">TTX / KP</span><span class="sgc"><span class="il" data-lang="en">Defense Tenders</span><span class="il" data-lang="ua">Держзакупівлі</span></span></div></div>
+      <div class="sg"><div class="sgl">CRM &amp; Tools</div><div class="sgch"><span class="sgc">Bitrix24</span><span class="sgc">HubSpot</span><span class="sgc">amoCRM</span><span class="sgc">Pipedrive</span><span class="sgc">Power BI</span><span class="sgc">Google Sheets</span></div></div>
+      <div class="sg"><div class="sgl"><span class="il" data-lang="en">Leadership</span><span class="il" data-lang="ua">Управління</span></div><div class="sgch"><span class="sgc"><span class="il" data-lang="en">KPI Systems</span><span class="il" data-lang="ua">KPI-системи</span></span><span class="sgc"><span class="il" data-lang="en">Team Coaching</span><span class="il" data-lang="ua">Коучинг</span></span><span class="sgc"><span class="il" data-lang="en">Onboarding</span><span class="il" data-lang="ua">Онбординг</span></span><span class="sgc"><span class="il" data-lang="en">Forecasting</span><span class="il" data-lang="ua">Прогнозування</span></span></div></div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<footer class="ft">
+  <span class="il" data-lang="en">Vasyl Butuzov &nbsp;·&nbsp; boo2zov@outlook.com &nbsp;·&nbsp; +380 66 362 0169 &nbsp;·&nbsp; Ivano-Frankivsk, Ukraine</span>
+  <span class="il" data-lang="ua">Василь Бутузов &nbsp;·&nbsp; boo2zov@outlook.com &nbsp;·&nbsp; +380 66 362 0169 &nbsp;·&nbsp; Івано-Франківськ, Україна</span>
+</footer>
+
+<script>
+function setLang(l){
+  document.querySelectorAll('[data-lang]').forEach(e=>e.classList.toggle('v',e.dataset.lang===l));
+  document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('on',b.textContent.trim().toLowerCase()===l));
+  document.getElementById('dl').href=l==='ua'?'Vasyl_Butuzov_CV_UA.pdf':'Vasyl_Butuzov_CV_EN.pdf';
+  document.documentElement.lang=l==='ua'?'uk':'en';
+}
+function tog(el){el.classList.toggle('on')}
+setLang('en');
+</script>
+</body>
+</html>
